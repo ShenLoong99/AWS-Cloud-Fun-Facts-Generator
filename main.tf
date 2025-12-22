@@ -54,6 +54,8 @@ resource "aws_lambda_function" "cloud_fun_facts" {
 
   filename         = data.archive_file.lambda_zip.output_path
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
+
+  timeout = 30
 }
 
 resource "aws_apigatewayv2_api" "funfacts_api" {
@@ -120,4 +122,9 @@ resource "aws_dynamodb_table_item" "cloud_facts" {
 resource "aws_iam_role_policy_attachment" "lambda_dynamodb_read" {
   role       = aws_iam_role.lambda_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonDynamoDBReadOnlyAccess"
+}
+
+resource "aws_iam_role_policy_attachment" "lambda_bedrock_access" {
+  role       = aws_iam_role.lambda_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonBedrockFullAccess"
 }
