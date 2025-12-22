@@ -1,6 +1,15 @@
 terraform {
   required_version = ">= 1.5.0"
 
+  backend "remote" {
+    hostname     = "app.terraform.io"
+    organization = "sky-projects-v1-2025"
+
+    workspaces {
+      name = "AWS-Cloud-Fun-Facts-Generator"
+    }
+  }
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"
