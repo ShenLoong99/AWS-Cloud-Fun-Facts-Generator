@@ -1,64 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Cloud Fun Facts – Serverless API (Terraform)</title>
-  <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-      max-width: 960px;
-      margin: auto;
-      padding: 40px;
-      color: #222;
-      background-color: #ffffff;
-    }
-
-    h1, h2, h3 {
-      color: #0f62fe;
-    }
-
-    code {
-      background-color: #f4f4f4;
-      padding: 4px 6px;
-      border-radius: 4px;
-      font-size: 0.95em;
-    }
-
-    pre {
-      background-color: #f4f4f4;
-      padding: 16px;
-      border-radius: 6px;
-      overflow-x: auto;
-    }
-
-    ul {
-      margin-left: 20px;
-    }
-
-    .highlight {
-      background: #e8f0fe;
-      padding: 16px;
-      border-left: 5px solid #0f62fe;
-      margin: 24px 0;
-    }
-
-    .warning {
-      background: #fff3cd;
-      padding: 16px;
-      border-left: 5px solid #ff9800;
-      margin: 24px 0;
-    }
-
-    footer {
-      margin-top: 60px;
-      font-size: 0.9em;
-      color: #555;
-      text-align: center;
-    }
-  </style>
-</head>
-
 <body>
 
 <h1>☁️ Cloud Fun Facts – Serverless API (Terraform IaC)</h1>
@@ -234,7 +175,7 @@ After the API Gateway free tier expires, costs remain extremely low
 ---
 
 <footer>
-  Built with ❤️ using AWS Lambda, API Gateway, and Terraform
+  Built by ShenLoong with ❤️ using AWS Lambda, API Gateway, and Terraform
 </footer>
 
 </body>
