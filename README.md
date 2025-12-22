@@ -2,180 +2,117 @@
 <html lang="en">
 <body>
 
-<h1>☁️ Cloud Fun Facts – Serverless API (Terraform IaC)</h1>
+<h1>☁️ Cloud Fun Facts – Full-Stack Serverless AI</h1>
+
+<div class="tech-stack">
+  <span class="badge">AWS Lambda</span>
+  <span class="badge">API Gateway</span>
+  <span class="badge">DynamoDB</span>
+  <span class="badge">Amazon Bedrock (Claude 3.5)</span>
+  <span class="badge">S3 + CloudFront</span>
+  <span class="badge">Terraform</span>
+</div>
 
 <p>
-This project demonstrates a <strong>fully serverless cloud API</strong> built using
-<strong>AWS Lambda</strong>, <strong>API Gateway (HTTP API)</strong>, and
-<strong>Terraform Infrastructure as Code</strong>.
+  This project is a <strong>complete full-stack serverless application</strong> that generates engaging cloud computing facts. It utilizes <strong>Infrastructure as Code (Terraform)</strong> to provision a scalable, AI-enhanced backend and a secure, globally distributed frontend.
 </p>
 
-<p>
-The API returns a random cloud-related fun fact via a public HTTP endpoint and is designed
-to stay <strong>within AWS Free Tier limits for as long as possible</strong>.
-</p>
 
 ---
 
 <h2>📐 Architecture Overview</h2>
 
 <ul>
-  <li><strong>AWS Lambda</strong> – Executes Python code to return random cloud facts</li>
-  <li><strong>API Gateway (HTTP API)</strong> – Public HTTP endpoint (<code>GET /funfact</code>)</li>
-  <li><strong>IAM Role</strong> – Least-privilege execution role for Lambda</li>
-  <li><strong>CloudWatch Logs</strong> – Basic execution logging</li>
+  <li><strong>Frontend:</strong> Static HTML/JS hosted on <strong>Amazon S3</strong> and distributed via <strong>Amazon CloudFront</strong> using Origin Access Control (OAC).</li>
+  <li><strong>API Layer:</strong> <strong>Amazon API Gateway (HTTP API)</strong> with CORS enabled for cross-origin frontend requests.</li>
+  <li><strong>Compute:</strong> <strong>AWS Lambda</strong> running Python 3.13 on <strong>ARM64 (Graviton2)</strong> for cost-efficiency.</li>
+  <li><strong>Database:</strong> <strong>Amazon DynamoDB</strong> (On-Demand) storing a library of curated cloud facts.</li>
+  <li><strong>AI Integration:</strong> <strong>Amazon Bedrock (Claude 3.5 Sonnet)</strong> used to transform raw facts into witty, engaging content.</li>
 </ul>
-
-<p>
-All resources are provisioned using <strong>Terraform</strong> and deployed in
-<strong>ap-southeast-1 (Singapore)</strong>.
-</p>
 
 ---
 
-<h2>🚀 Deployment</h2>
+<h2>🚀 Deployment Instructions</h2>
+
+<p>Ensure you have the <a href="https://www.terraform.io/downloads">Terraform CLI</a> installed and AWS credentials configured.</p>
 
 <pre>
+# Initialize and connect to Terraform Cloud
 terraform init
+
+# Preview changes
 terraform plan
+
+# Deploy infrastructure
 terraform apply
 </pre>
 
-<p>
-After deployment, Terraform outputs the public API endpoint.  
-Test it using:
-</p>
-
-<pre>
-curl &lt;api_endpoint&gt;/funfact
-</pre>
-
----
-
-<h2>💰 Cost Analysis (ap-southeast-1)</h2>
-
 <div class="highlight">
-<strong>Summary:</strong> Under normal usage, this project runs at <strong>$0/month</strong>.
+  <strong>Note:</strong> After deployment, the <code>cloudfront_url</code> output will provide your public website address.
 </div>
 
-<h3>1️⃣ AWS Lambda</h3>
-
-<ul>
-  <li>Free Tier (always available):</li>
-  <ul>
-    <li>1,000,000 requests / month</li>
-    <li>400,000 GB-seconds compute</li>
-  </ul>
-</ul>
-
-<p>
-With a 128 MB function running ~10–20 ms per request, Lambda can handle
-<strong>millions of requests per month</strong> without incurring cost.
-</p>
-
-<strong>Expected cost:</strong> $0.00
-
 ---
 
-<h3>2️⃣ API Gateway (HTTP API)</h3>
+<h2>💰 Cost Optimization (Free Tier Optimized)</h2>
 
-<ul>
-  <li>Free Tier: 1,000,000 requests / month for 12 months</li>
-  <li>After Free Tier: ~<strong>$1 per million requests</strong></li>
-</ul>
+<p>This architecture is specifically designed to remain within the <strong>AWS Free Tier</strong> limits:</p>
 
-<table border="1" cellpadding="8" cellspacing="0">
-  <tr>
-    <th>Requests / Month</th>
-    <th>Estimated Cost</th>
-  </tr>
-  <tr>
-    <td>1M</td>
-    <td>$0</td>
-  </tr>
-  <tr>
-    <td>10M</td>
-    <td>~$9</td>
-  </tr>
-  <tr>
-    <td>100M</td>
-    <td>~$99</td>
-  </tr>
+<table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Optimization Strategy</th>
+      <th>Estimated Cost</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Lambda</strong></td>
+      <td>ARM64 architecture & 1M free requests/month.</td>
+      <td>$0.00</td>
+    </tr>
+    <tr>
+      <td><strong>CloudWatch</strong></td>
+      <td><strong>7-day log retention</strong> policy to prevent storage bloat.</td>
+      <td>$0.00</td>
+    </tr>
+    <tr>
+      <td><strong>DynamoDB</strong></td>
+      <td>Pay-per-request billing.</td>
+      <td>$0.00 (under low volume)</td>
+    </tr>
+    <tr>
+      <td><strong>CloudFront</strong></td>
+      <td>1TB of free data transfer per month.</td>
+      <td>$0.00</td>
+    </tr>
+    <tr>
+      <td><strong>S3</strong></td>
+      <td><strong>Lifecycle rules</strong> to expire old versions after 30 days.</td>
+      <td>$0.00</td>
+    </tr>
+  </tbody>
 </table>
 
-<p>
-API Gateway is the <strong>first service likely to incur cost</strong> under heavy traffic.
-</p>
-
 ---
 
-<h3>3️⃣ CloudWatch Logs</h3>
+<h2>🛡️ Security & Scalability</h2>
 
 <ul>
-  <li>Free Tier: 5 GB ingestion + 5 GB storage per month</li>
-  <li>Average logs per request: ~2–3 KB</li>
-</ul>
-
-<p>
-Even at 1 million requests per month, log usage remains within the free tier.
-</p>
-
-<strong>Expected cost:</strong> $0.00
-
----
-
-<h3>4️⃣ IAM</h3>
-
-<p>
-IAM roles and policies are <strong>free of charge</strong>.
-</p>
-
----
-
-<h2>⏳ How Long Can This Run?</h2>
-
-<ul>
-  <li><strong>AWS Lambda:</strong> Free tier forever</li>
-  <li><strong>IAM:</strong> Free forever</li>
-  <li><strong>CloudWatch Logs:</strong> Free within limits</li>
-  <li><strong>API Gateway:</strong> 12 months free tier</li>
-</ul>
-
-<div class="highlight">
-This project can run <strong>indefinitely</strong>.  
-After the API Gateway free tier expires, costs remain extremely low
-(~$1 per million requests).
-</div>
-
----
-
-<h2>🛡️ Cost Protection Recommendations</h2>
-
-<ul>
-  <li>Add API Gateway throttling</li>
-  <li>Create an AWS Budget (e.g. $5/month)</li>
-  <li>Optionally add AWS WAF for bot protection</li>
+  <li><strong>Least Privilege:</strong> Lambda uses a dedicated IAM role with specific access to DynamoDB and Bedrock.</li>
+  <li><strong>Origin Protection:</strong> S3 bucket is 100% private; users can only access content via CloudFront OAC.</li>
+  <li><strong>Throttling:</strong> API Gateway is limited to 100 requests/sec to prevent cost spikes from bot abuse.</li>
+  <li><strong>HTTPS:</strong> Forced SSL redirection via CloudFront.</li>
 </ul>
 
 <div class="warning">
-<strong>Important:</strong> Public endpoints should always have rate limiting in production.
+  <strong>Bedrock Access:</strong> Ensure you have manually requested access to <strong>Anthropic Claude</strong> models in your AWS Console (Bedrock > Model Access) before running the Lambda.
 </div>
-
----
-
-<h2>🎯 Why This Project Matters</h2>
-
-<ul>
-  <li>100% serverless</li>
-  <li>Terraform Associate exam aligned</li>
-  <li>Free-tier safe</li>
-  <li>Scalable foundation for DynamoDB, GenAI, and frontend integration</li>
-</ul>
 
 ---
 
 <footer>
-  Built by ShenLoong with ❤️ using AWS Lambda, API Gateway, and Terraform
+  Built by ShenLoong with ❤️ | Infrastructure powered by Terraform & AWS
 </footer>
 
 </body>
