@@ -225,6 +225,11 @@ resource "aws_s3_object" "frontend_index" {
   content = templatefile("${path.module}/frontend/index.html", {
     api_url = aws_apigatewayv2_stage.default.invoke_url
   })
+
+  # This forces a re-upload if the content changes
+  etag = md5(templatefile("${path.module}/frontend/index.html", {
+    api_url = aws_apigatewayv2_stage.default.invoke_url
+  }))
 }
 
 // CORS Settings for API Gateway
