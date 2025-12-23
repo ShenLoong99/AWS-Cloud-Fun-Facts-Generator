@@ -58,7 +58,7 @@
 
 <h2 id="architecture">Architecture</h2>
 <p align="center">
-  <img src="assets/AWS Cloud Fun Facts Generator.jpg" alt="Architecture Diagram" width="800">
+  <img src="assets/AWS-Image-Labels-Generator.jpg" alt="Architecture Diagram" width="800">
 </p>
 <p>
   The system follows a serverless-inspired architecture to ensure scalability and cost-efficiency:
