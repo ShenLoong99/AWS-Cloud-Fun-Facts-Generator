@@ -1,3 +1,12 @@
+<a id="readme-top"></a>
+
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![Unlicense License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
 <div>
   <h1>☁️ Cloud Fun Facts Generator</h1>
   <p>
@@ -30,13 +39,23 @@
 <div align="right"><a href="#readme-top">↑ Back to Top</a></div>
 
 <h2 id="built-with">Built With</h2>
+<p>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/terraform/terraform-original.svg" alt="terraform" width="45" height="45" style="margin: 10px;"/>
+  <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/aws/aws.png" alt="aws" width="45" height="45" style="margin: 10px;"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="45" height="45" style="margin: 10px;"/>
+  <img src="https://raw.githubusercontent.com/weibeld/aws-icons-svg/main/q1-2022/Architecture-Service-Icons_01312022/Arch_Compute/48/Arch_AWS-Lambda_48.svg" alt="lambda" width="45" height="45" style="margin: 10px;">
+  <img src="https://raw.githubusercontent.com/weibeld/aws-icons-svg/main/q1-2022/Architecture-Service-Icons_01312022/Arch_App-Integration/Arch_48/Arch_ Amazon-API-Gateway_48.svg" alt="api-gateway" width="45" height="45" style="margin: 10px;"/>
+  <img src="https://raw.githubusercontent.com/weibeld/aws-icons-svg/main/q1-2022/Architecture-Service-Icons_01312022/Arch_Database/48/Arch_Amazon-DynamoDB_48.svg" alt="dynamodb" width="45" height="45" style="margin: 10px;"/>
+  <img src="https://raw.githubusercontent.com/weibeld/aws-icons-svg/main/q1-2022/Resource-Icons_01312022/Res_Storage/Res_48_Light/Res_Amazon-Simple-Storage-Service_S3-Standard_48_Light.svg" alt="s3" width="45" height="45" style="margin: 10px;"/>
+  <img src="https://raw.githubusercontent.com/weibeld/aws-icons-svg/main/q1-2022/Architecture-Service-Icons_01312022/Arch_Networking-Content-Delivery/48/Arch_Amazon-CloudFront_48.svg" alt="cloudfront" width="45" height="45" style="margin: 10px;"/>
+</p
 <ul>
-  <li><strong>Terraform Cloud</strong> - Infrastructure Provisioning & State Management</li>
-  <li><strong>AWS Lambda (Python 3.13)</strong> - Serverless Logic</li>
-  <li><strong>AWS API Gateway</strong> - Secure HTTP Endpoints</li>
-  <li><strong>Amazon DynamoDB</strong> - NoSQL Fact Storage</li>
-  <li><strong>Amazon Bedrock (Claude 3.5)</strong> - AI Content Transformation</li>
-  <li><strong>Amazon S3 & CloudFront</strong></li>
+  <li><strong>Terraform Cloud</strong> - Managed IaC and state synchronization</li>
+  <li><strong>AWS Lambda (Python 3.13)</strong> - Event-driven compute on ARM64 for cost-efficiency</li>
+  <li><strong>AWS API Gateway</strong> - Managed HTTP API with built-in throttling</li>
+  <li><strong>Amazon DynamoDB</strong> - On-demand NoSQL database for fact storage</li>
+  <li><strong>Amazon Bedrock (Claude 3.5)</strong> - Generative AI for real-time witty fact rewriting</li>
+  <li><strong>Amazon S3 & CloudFront</strong> – Secure, global static web hosting</li>
 </ul>
 <div align="right"><a href="#readme-top">↑ Back to Top</a></div>
 
@@ -60,6 +79,9 @@
   <li>Terraform CLI (v1.5.0+) installed locally.</li>
   <li>Terraform Cloud account for remote state management.</li>
 </ul>
+<p>
+  <img src="images/Terraform Cloud.png" alt="Architecture Diagram" width="800">
+</p>
 
 <h3>Installation</h3>
 <ol>
@@ -71,6 +93,9 @@
 
 <h2 id="usage">Usage & Testing</h2>
 <p>Once deployment is complete, Terraform provides two key outputs:</p>
+<p>
+  <img src="images/Terraform Output.png" alt="Architecture Diagram" width="800">
+</p>
 <ul>
   <li><strong>Web Interface:</strong> Access the live site at the <code>cloudfront_url</code> (e.g., <code>https://d11a5c37xehwja.cloudfront.net</code>).</li>
   <li><strong>REST API:</strong> Test the raw backend directly at the <code>api_invoke_url</code>:
