@@ -10,7 +10,7 @@
 <div>
   <h1>☁️ Cloud Fun Facts Generator</h1>
   <p>
-    <img src="images/Cloud Fun Facts Webpage.png" alt="Architecture Diagram" width="800">
+    <img src="assets/Cloud Fun Facts Webpage.png" alt="Architecture Diagram" width="800">
   <p>
     An AI-powered serverless application built with Terraform, AWS Lambda, and Amazon Bedrock.
     <br />
@@ -46,6 +46,7 @@
   <img src="https://raw.githubusercontent.com/weibeld/aws-icons-svg/main/q1-2022/Architecture-Service-Icons_01312022/Arch_Compute/48/Arch_AWS-Lambda_48.svg" alt="lambda" width="45" height="45" style="margin: 10px;">
   <img src="https://raw.githubusercontent.com/weibeld/aws-icons-svg/main/q1-2022/Architecture-Service-Icons_01312022/Arch_App-Integration/Arch_48/Arch_ Amazon-API-Gateway_48.svg" alt="api-gateway" width="45" height="45" style="margin: 10px;"/>
   <img src="https://raw.githubusercontent.com/weibeld/aws-icons-svg/main/q1-2022/Architecture-Service-Icons_01312022/Arch_Database/48/Arch_Amazon-DynamoDB_48.svg" alt="dynamodb" width="45" height="45" style="margin: 10px;"/>
+  <img src="assets/bedrock-color.svg" width="45" height="45" style="margin: 10px;">
   <img src="https://raw.githubusercontent.com/weibeld/aws-icons-svg/main/q1-2022/Resource-Icons_01312022/Res_Storage/Res_48_Light/Res_Amazon-Simple-Storage-Service_S3-Standard_48_Light.svg" alt="s3" width="45" height="45" style="margin: 10px;"/>
   <img src="https://raw.githubusercontent.com/weibeld/aws-icons-svg/main/q1-2022/Architecture-Service-Icons_01312022/Arch_Networking-Content-Delivery/48/Arch_Amazon-CloudFront_48.svg" alt="cloudfront" width="45" height="45" style="margin: 10px;"/>
 </p
@@ -61,7 +62,7 @@
 
 <h2 id="architecture">Architecture</h2>
 <p align="center">
-  <img src="images/AWS Cloud Fun Facts Generator.jpg" alt="Architecture Diagram" width="800">
+  <img src="assets/AWS Cloud Fun Facts Generator.jpg" alt="Architecture Diagram" width="800">
 </p>
 <p>
   The application follows a modern serverless flow:
@@ -80,7 +81,7 @@
   <li>Terraform Cloud account for remote state management.</li>
 </ul>
 <p>
-  <img src="images/Terraform Cloud.png" alt="Architecture Diagram" width="800">
+  <img src="assets/Terraform Cloud.png" alt="Architecture Diagram" width="800">
 </p>
 
 <h3>Installation</h3>
@@ -94,7 +95,7 @@
 <h2 id="usage">Usage & Testing</h2>
 <p>Once deployment is complete, Terraform provides two key outputs:</p>
 <p>
-  <img src="images/Terraform Output.png" alt="Architecture Diagram" width="800">
+  <img src="assets/Terraform Output.png" alt="Architecture Diagram" width="800">
 </p>
 <ul>
   <li><strong>Web Interface:</strong> Access the live site at the <code>cloudfront_url</code> (e.g., <code>https://d11a5c37xehwja.cloudfront.net</code>).</li>
