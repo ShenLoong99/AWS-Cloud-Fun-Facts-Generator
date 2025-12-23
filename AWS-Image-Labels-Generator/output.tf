@@ -1,5 +1,5 @@
 output "s3_bucket_name" {
-  description = "S3 bucket name for image uploads"
+  description = "S3 bucket for image uploads"
   value       = aws_s3_bucket.images_bucket.bucket
 }
 
