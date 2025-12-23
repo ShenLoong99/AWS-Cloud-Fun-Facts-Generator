@@ -39,12 +39,15 @@
 <div align="right"><a href="#readme-top">↑ Back to Top</a></div>
 
 <h2 id="architecture">Architecture</h2>
+<p align="center">
+  <img src="Diagram/architecture.jpg" alt="Architecture Diagram" width="800">
+</p>
 <p>
   The application follows a modern serverless flow:
   <br>
   <code>User Browser</code> ➔ <code>CloudFront</code> ➔ <code>S3 (Frontend)</code>
   <br>
-  <code>Frontend JS</code> ➔ <code>API Gateway</code> ➔ <code>Lambda</code> ➔ <code>DynamoDB (Fetch)</code> ➔ <code>Bedrock AI (Transform)</code>
+  <code>User Browser</code> ➔ <code>API Gateway</code> ➔ <code>Lambda</code> ➔ <code>DynamoDB (Fetch)</code> ➔ <code>Bedrock AI (Transform)</code>
 </p>
 <div align="right"><a href="#readme-top">↑ Back to Top</a></div>
 
