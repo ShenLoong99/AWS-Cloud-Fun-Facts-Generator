@@ -1,14 +1,17 @@
 <a id="readme-top"></a>
 
 <div>
-  <h1>📷 AWS Image Labels Generator</h1>
+  <h1>🗣️ AWS Polly Text-to-Speech</h1>
+  <img align="center" src="assets/amazon-polly-img.jpg" alt="amazon-polly" width="200"><br>
+  <audio controls>
+    <source src="audio/intro.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
   <p>
-    <img src="assets/cats-ui-output.png" alt="cats-ui-output" width="800">
-    <p>
-        The <strong>AWS Image Labels Generator</strong> is a cloud-native automated solution designed to detect and catalog objects, scenes, and concepts within images. By leveraging advanced machine learning, this project allows users to upload images to a secure cloud storage environment and receive detailed metadata labels with high confidence scores. 
-        <br />
-      <a href="#about-the-project"><strong>Explore the docs »</strong></a>
-    </p>
+      The <strong>AWS Polly Text-to-Speech</strong> project is a serverless cloud solution that converts text files stored in S3 into natural-sounding speech. Leveraging Amazon Polly, this application allows users to automatically generate audio from blogs, newsletters, scripts, or any text content. 
+      <br />
+    <a href="#about-the-project"><strong>Explore the docs »</strong></a>
+  </p>
 </div>
 
 <details>
@@ -19,7 +22,7 @@
     <li><a href="#use-cases">Use Cases</a></li>
     <li><a href="#architecture">Architecture</a></li>
     <li><a href="#getting-started">Getting Started</a></li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#usage">Usage & Testing</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#cost-optimization">Cost Optimization</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -28,7 +31,7 @@
 
 <h2 id="about-the-project">About The Project</h2>
 <p>
-    This project was built to demonstrate a modern <strong>GitOps workflow</strong> and <strong>Infrastructure as Code (IaC)</strong> principles using Terraform Cloud. It provides a bridge between raw image data and actionable insights, suitable for applications ranging from automated media tagging to brand coverage analysis.
+    This project demonstrates the power of <strong>serverless AWS architecture</strong> and <strong>Infrastructure as Code (IaC)</strong> with Terraform. Text files uploaded to an S3 bucket are automatically processed by a Lambda function that calls Amazon Polly to generate MP3 audio files. This automated pipeline enhances accessibility, user engagement, and content distribution workflows.
 </p>
 <div align="right"><a href="#readme-top">↑ Back to Top</a></div>
 
@@ -36,121 +39,110 @@
 <p>
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/terraform/terraform-original.svg" alt="terraform" width="45" height="45" style="margin: 10px;"/>
   <img src="https://raw.githubusercontent.com/weibeld/aws-icons-svg/main/q1-2022/Resource-Icons_01312022/Res_Storage/Res_48_Light/Res_Amazon-Simple-Storage-Service_S3-Standard_48_Light.svg" alt="s3" width="45" height="45" style="margin: 10px;"/>
-  <img src="https://raw.githubusercontent.com/weibeld/aws-icons-svg/main/q1-2022/Architecture-Service-Icons_01312022/Arch_Machine-Learning/48/Arch_Amazon-Rekognition_48.svg" alt="rekognition" width="45" height="45" style="margin: 10px;"/>
+  <img src="https://raw.githubusercontent.com/weibeld/aws-icons-svg/main/q1-2022/Architecture-Service-Icons_01312022/Arch_Machine-Learning/48/Arch_Amazon-Polly_48.svg" alt="polly" width="45" height="45" style="margin: 10px;"/>
   <img src="https://raw.githubusercontent.com/weibeld/aws-icons-svg/main/q1-2022/Architecture-Service-Icons_01312022/Arch_Security-Identity-Compliance/48/Arch_AWS-Identity-and-Access-Management_48.svg" alt="iam" width="45" height="45" style="margin: 10px;"/>
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="45" height="45" style="margin: 10px;"/>
 </p>
 <ul>
-  <li><strong>Terraform:</strong> Used for Infrastructure as Code to provision and manage AWS resources.</li>
-  <li><strong>Terraform Cloud:</strong> Manages the VCS-driven workflow and state for the infrastructure.</li>
-  <li><strong>AWS S3:</strong> Provides highly durable and scalable object storage for the source images.</li>
-  <li><strong>Amazon Rekognition:</strong> A deep-learning-based service that performs the heavy lifting of image analysis and label detection.</li>
-  <li><strong>AWS IAM:</strong> Ensures secure, least-privilege access for the application code to interact with AWS services.</li>
-  <li><strong>Python (Boto3):</strong> The programming language and SDK used to execute the label detection logic.</li>
+  <li><strong>Terraform:</strong> Provision and manage AWS infrastructure (S3 buckets, IAM roles, Lambda) via IaC.</li>
+  <li><strong>AWS S3:</strong> Secure object storage for input text files and output audio.</li>
+  <li><strong>Amazon Polly:</strong> Converts text into high-quality speech.</li>
+  <li><strong>AWS IAM:</strong> Implements least-privilege access for Lambda to interact with S3 and Polly.</li>
+  <li><strong>Python (Boto3):</strong> Handles S3 events, Polly API calls, and audio file storage.</li>
 </ul>
 <div align="right"><a href="#readme-top">↑ Back to Top</a></div>
 
 <h2 id="use-cases">Use Cases</h2>
-<p>
-    Amazon Rekognition is a highly versatile service with applications across many industries. This project can be adapted for the following real-world scenarios:
-</p>
 <ul>
-    <li><strong>Smart Surveillance Systems:</strong> Automatically recognize suspicious objects or activities on roads to enhance public safety.</li>
-    <li><strong>Inventory Management:</strong> Identify and catalog products in a store environment to streamline supply chain operations.</li>
-    <li><strong>Retail Analytics:</strong> Analyze customer behavior within physical stores to optimize layouts and marketing strategies.</li>
-    <li><strong>Accessibility Solutions:</strong> Provide automated descriptions of surroundings to assist individuals who are visually impaired.</li>
+    <li><strong>Content Accessibility:</strong> Automatically generate audio versions of blog posts or newsletters.</li>
+    <li><strong>Learning & Education:</strong> Convert textbooks or study materials into narrated audio for auditory learners.</li>
+    <li><strong>Podcast & Media Automation:</strong> Quickly produce spoken content from written scripts.</li>
+    <li><strong>Voice Assistants:</strong> Backend engine for applications that read content aloud on demand.</li>
 </ul>
 <div align="right"><a href="#readme-top">↑ Back to Top</a></div>
 
 <h2 id="architecture">Architecture</h2>
 <p align="center">
-  <img src="assets/AWS-Image-Labels-Generator.jpg" alt="Architecture Diagram" width="800">
+  <img src="assets/polly-architecture-diagram.jpg" alt="Architecture Diagram" width="800">
 </p>
 <p>
-  The system follows a serverless-inspired architecture to ensure scalability and cost-efficiency:
+  The serverless architecture is designed for simplicity, scalability, and cost-efficiency:
 </p>
 <ol>
-  <li><strong>Storage Layer:</strong> Images are uploaded to a private Amazon S3 bucket. Access is strictly controlled via a Public Access Block.</li>
-  <li><strong>Processing Layer:</strong> A Python script using the <code>boto3</code> library triggers the <code>DetectLabels</code> API on the Amazon Rekognition service.</li>
-  <li><strong>Identity Layer:</strong> A dedicated IAM user and policy provide the script with specific permissions to read from the S3 bucket and call the Rekognition service.</li>
-  <li><strong>Output Layer:</strong> The script processes the JSON response from Rekognition, displaying detected labels along with their confidence percentages.</li>
+  <li><strong>Input Layer:</strong> Users upload text files (articles, scripts, newsletters) to the input S3 bucket.</li>
+  <li><strong>Processing Layer:</strong> A Lambda function is triggered by S3 events. It reads the text and calls Amazon Polly to synthesize speech.</li>
+  <li><strong>Identity & Security:</strong> IAM role grants the Lambda permission to access the buckets and invoke Polly with least privilege.</li>
+  <li><strong>Output Layer:</strong> Generated MP3 files are saved to the output S3 bucket. Optional lifecycle rules and encryption ensure cost savings and security.</li>
 </ol>
 <div align="right"><a href="#readme-top">↑ Back to Top</a></div>
 
 <h2 id="getting-started">Getting Started</h2>
 <h3>Prerequisites</h3>
 <ul>
-    <li>An active <strong>AWS Account</strong>.</li>
-    <li>A <strong>Terraform Cloud</strong> account linked to your GitHub repository.</li>
-    <li><strong>Python 3.x</strong> installed locally for running the detection script.</li>
+    <li>Active <strong>AWS account</strong> with S3, Lambda, and Polly access.</li>
+    <li><strong>Terraform CLI / Terraform Cloud(optional)</strong> for IaC deployment.</li>
+    <li><strong>Python 3.x</strong> installed locally for testing Lambda code.</li>
 </ul>
 
 <h3>Installation & Deployment</h3>
 <ol>
-    <li>
-        <strong>Clone the Repository:</strong>
-    </li>
-    <li>
-        <strong>Provision Infrastructure:</strong>
-        Push your changes to the <code>main</code> branch to trigger a Terraform Cloud plan. Once approved, Terraform will provision your S3 bucket and IAM resources.
-    </li>
-    <li>
-        <strong>Configure Local Environment:</strong>
-        Create a <code>.env</code> file or export your AWS credentials and the S3 bucket name (found in the Terraform output) to your environment variables.
-    </li>
-    <li>
-        <strong>Install Python Dependencies:</strong>
-        <code>pip install -r requirements.txt</code>
-    </li>
+    <li>Clone the repository.</li>
+    <li>Provision infrastructure via Terraform Cloud. Approve the plan to create S3 buckets, IAM roles, and Lambda function.</li>
+    <li>Configure local environment variables (e.g., <code>OUTPUT_BUCKET</code>).</li>
 </ol>
 <div align="right"><a href="#readme-top">↑ Back to Top</a></div>
 
 <h2 id="usage">Usage & Testing</h2>
-<p>
-  To generate labels for an image, follow these steps:
-</p>
 <ol>
   <li>
-    Upload an image (e.g., <code>busy-traffic-road.jpg</code>) to the S3 bucket created by Terraform.
-    <img src="assets/busy-traffic-road.jpg" alt="busy-traffic-road" width="400">
+    Upload a text file (e.g., <code>malaysia-news-article.txt</code>) to the input S3 bucket created by Terraform.<br>
+    <pre>aws s3 cp test/malaysia-news-article.txt s3://&lt;your-s3-input-bucket-name&gt;</pre>
+    <img src="assets/upload-text-into-bucket.png" alt="upload-file" width="800"><br><br>
+    <img src="assets/input-bucket-objects.png" alt="input-bucket-objects" width="800">
   </li>
-  <li>Update the <code>IMAGE_NAME</code> variable in <code>detect_labels.py</code> to match your file name.</li>
-  <li>Run the script: <code>python detect_labels.py</code>.</li>
-  <li>The script will output a list of detected objects (e.g., "Car: 99.2%", "Pedestrian: 88.5%") and display the image with bounding boxes if available.</li>
+  <li>
+    Verify if the file is being processed (or go to AWS console and check in your S3 output bucket)<br>
+    <pre>aws s3 ls s3://&lt;your-s3-output-bucket-name&gt;</pre>
+    <img src="assets/verify-files-in-bucket.png" alt="verify-file" width="800"><br><br>
+    <img src="assets/output-bucket-objects.png" alt="output-bucket-objects" width="800">
+  </li>
+  <li>
+    Check the output S3 bucket for the generated MP3 file by downloading it.<br>
+    <pre>aws s3 cp s3://&lt;your-s3-output-bucket-name&gt;/malaysia-news-article.mp3 ./test/malaysia-news-article.mp3</pre>
+    <img src="assets/download-mp3-from-bucket.png" alt="verify-file" width="800"><br>
+    <audio controls>
+      <source src="audio/malaysia-news-article.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </li>
+  <li>
+    View CloudWatch logs to confirm successful execution or troubleshoot errors.<br>
+    <img src="assets/log-events-lambda-polly.png" alt="verify-file" width="800">
+  </li>
 </ol>
-<h3>
-  Browser Output
-</h3>
-  <img src="assets/busy-traffic-road-ui-output.png" alt="busy-traffic-road-ui-output" width="800">
-</p>
-<h3>
-  CLI Output
-</h3>
-<img src="assets/busy-traffic-road-cli-output.png" alt="busy-traffic-road-cli-output" width="400">
 <div align="right"><a href="#readme-top">↑ Back to Top</a></div>
 
 <h2 id="roadmap">Project Roadmap</h2>
 <ul>
-  <li>[x] <strong>Storage Setup:</strong> Create a private Amazon S3 bucket to act as the central repository for your source images.</li>
-  <li>[x] <strong>Environment Config:</strong> Install and configure the AWS CLI and Python environment (boto3, Pillow) to communicate with cloud services.</li>
-  <li>[x] <strong>Logic Development:</strong> Develop the Python script using the detect_labels function to send images to Amazon Rekognition.</li>
-  <li>[x] <strong>Execution & Verification:</strong> Run the script to generate metadata tags and verify object detection results with bounding boxes.</li>
+  <li>[x] Input S3 bucket creation</li>
+  <li>[x] Output S3 bucket creation with server-side encryption and lifecycle rules</li>
+  <li>[x] IAM role & policy for Lambda</li>
+  <li>[x] Lambda function development with Polly integration</li>
+  <li>[x] Logging and error handling for CloudWatch</li>
+  <li>[x] CLI and local testing setup</li>
 </ul>
 <div align="right"><a href="#readme-top">↑ Back to Top</a></div>
 
 <h2 id="cost-optimization">Cost Optimization (Free Tier)</h2>
-<p>
-  To keep the project budget-friendly, the following strategies are implemented or recommended:
-</p>
 <ul>
-  <li><strong>S3 Lifecycle Policies:</strong> Automatically transition images to <em>S3 Standard-IA</em> or <em>Glacier</em> after 30 days of inactivity to reduce storage costs.</li>
-  <li><strong>Confidence Thresholds:</strong> By setting a <code>MIN_CONFIDENCE</code> level (e.g., 70%), we filter out low-certainty results, reducing unnecessary data processing.</li>
-  <li><strong>Free Tier Utilization:</strong> Amazon Rekognition and S3 both offer free tier limits for the first 12 months, which this project stays within for light usage.</li>
-  <li><strong>Manual Apply in TFC:</strong> Set Terraform Cloud to "Manual Apply" to prevent accidental resource creation and associated costs.</li>
+  <li><strong>Free Tier S3 & Polly:</strong> Small-scale demos stay within AWS free tier limits.</li>
+  <li><strong>Lifecycle Rules:</strong> Automatically delete or transition audio files after 30 days to reduce storage costs.</li>
+  <li><strong>Character Limits:</strong> Guard against text >10,000 characters per file to avoid unnecessary Polly charges.</li>
+  <li><strong>Terraform Manual Apply:</strong> Prevents accidental resource creation that could incur costs.</li>
 </ul>
 <div align="right"><a href="#readme-top">↑ Back to Top</a></div>
 
 <h2 id="contact">Contact</h2>
 <p>Tan Si Kai - <a href="https://linkedin.com/in/si-kai-tan">LinkedIn</a></p>
-<p>Project Link: <a href="https://github.com/ShenLoong99/my-terraform-aws-projects-2025/tree/main/AWS-Image-Labels-Generator">Image Labels Generator</a></p>
+<p>Project Link: <a href="https://github.com/ShenLoong99/my-terraform-aws-projects-2025/edit/main/AWS-polly-text-to-speech">AWS Polly Text-to-Speech Repo</a></p>
 <div align="right"><a href="#readme-top">↑ Back to Top</a></div>
