@@ -4,7 +4,7 @@
   <h1>🗣️ AWS Polly Text-to-Speech</h1>
   <p align="center">
     <img src="assets/amazon-polly-img.jpg" alt="amazon-polly" width="200"><br>
-    <a href="https://ShenLoong99.github.io/my-terraform-aws-projects-2025/AWS-polly-text-to-speech/audio/
+    <a target="_blank" href="https://ShenLoong99.github.io/my-terraform-aws-projects-2025/AWS-polly-text-to-speech/audio/
     ">🎵 [Click here to listen to the intro]</a>
   </p>
   <p>
@@ -110,10 +110,8 @@
     Check the output S3 bucket for the generated MP3 file by downloading it.<br>
     <pre>aws s3 cp s3://&lt;your-s3-output-bucket-name&gt;/malaysia-news-article.mp3 ./test/malaysia-news-article.mp3</pre>
     <img src="assets/download-mp3-from-bucket.png" alt="verify-file" width="800"><br>
-    <audio controls>
-      <source src="audio/malaysia-news-article.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
+    <a target="_blank" href="https://ShenLoong99.github.io/my-terraform-aws-projects-2025/AWS-polly-text-to-speech/audio/
+    ">🎵 [Click here to listen to the Output]</a>
   </li>
   <li>
     View CloudWatch logs to confirm successful execution or troubleshoot errors.<br>
