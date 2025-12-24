@@ -20,6 +20,7 @@
     <li><a href="#getting-started">Getting Started</a></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#challenges-faced">Roadmap</a></li>
     <li><a href="#cost-optimization">Cost Optimization</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -298,6 +299,52 @@
   <li>[x] <strong>Logic Development:</strong> Develop the Python script using the detect_labels function to send images to Amazon Rekognition.</li>
   <li>[x] <strong>Execution & Verification:</strong> Run the script to generate metadata tags and verify object detection results with bounding boxes.</li>
 </ul>
+<div align="right"><a href="#readme-top">↑ Back to Top</a></div>
+
+<h2 id="challenges-faced">Challenges</h2>
+<p>
+    During the development of this project, several technical hurdles were encountered. Below are the key challenges and the engineering decisions made to resolve them:
+</p>
+<table>
+    <thead>
+        <tr>
+            <th>Challenge</th>
+            <th>Solution</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Lambda Zip Too Large</strong></td>
+            <td>
+                Removed <code>Pillow/Matplotlib</code> bloat; switched to passing S3 references directly to Rekognition (reduced size from 70MB to <1KB).
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Manual Workflow</strong></td>
+            <td>
+                Replaced manual script execution with S3 Event Notifications to trigger Lambda automatically on every upload.
+            </td>
+        </tr>
+        <tr>
+            <td><strong>CLI Path Errors</strong></td>
+            <td>
+                Resolved Git Bash path mangling on Windows by using MSYS_NO_PATHCONV=1 for real-time log streaming.
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Timeout Issues</strong></td>
+            <td>
+                Optimized performance by increasing <strong>Memory (256MB)</strong> and <strong>Timeout (10s)</strong> in Terraform to handle high-res image latency.
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Security Risks</strong></td>
+            <td>
+                Eliminated long-lived IAM Access Keys; implemented IAM Execution Roles for secure, temporary credentialing.
+            </td>
+        </tr>
+    </tbody>
+</table>
 <div align="right"><a href="#readme-top">↑ Back to Top</a></div>
 
 <h2 id="cost-optimization">Cost Optimization (Free Tier)</h2>
