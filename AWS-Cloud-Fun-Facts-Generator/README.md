@@ -2,7 +2,6 @@
 
 <div>
   <h1>☁️ Cloud Fun Facts Generator</h1>
-  <p>
     <img src="assets/Cloud Fun Facts Webpage.png" alt="Webpage Output" width="800">
   <p>
     An AI-powered serverless application built with Terraform, AWS Lambda, and Amazon Bedrock.

@@ -2,7 +2,6 @@
 
 <div>
   <h1>📷 AWS Image Labels Generator</h1>
-  <p>
     <img src="assets/cats-ui-output.png" alt="cats-ui-output" width="800">
     <p>
         The <strong>AWS Image Labels Generator</strong> is a cloud-native automated solution designed to detect and catalog objects, scenes, and concepts within images. By leveraging advanced machine learning, this project allows users to upload images to a secure cloud storage environment and receive detailed metadata labels with high confidence scores. 
@@ -81,7 +80,7 @@
 <h3>Prerequisites</h3>
 <ul>
     <li>An active <strong>AWS Account</strong>.</li>
-    <li>A <strong>Terraform Cloud</strong> account linked to your GitHub repository.</li>
+    <li><strong>Terraform CLI / Terraform Cloud(optional)</strong> for IaC deployment.</li>
     <li><strong>Python 3.x</strong> installed locally for running the detection script.</li>
 </ul>
 

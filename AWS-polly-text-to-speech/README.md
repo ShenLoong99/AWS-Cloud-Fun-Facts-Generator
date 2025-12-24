@@ -3,7 +3,7 @@
 <div>
   <h1>🗣️ AWS Polly Text-to-Speech</h1>
   <img align="center" src="assets/amazon-polly-img.jpg" alt="amazon-polly" width="200"><br>
-  [Listen to sample audio](assets/intro.mp3)
+  [Click here to listen to the audio player](https://github.com/ShenLoong99/my-terraform-aws-projects-2025/blob/main/AWS-polly-text-to-speech/audio/intro.mp3)
   <p>
       The <strong>AWS Polly Text-to-Speech</strong> project is a serverless cloud solution that converts text files stored in S3 into natural-sounding speech. Leveraging Amazon Polly, this application allows users to automatically generate audio from blogs, newsletters, scripts, or any text content. 
       <br />
