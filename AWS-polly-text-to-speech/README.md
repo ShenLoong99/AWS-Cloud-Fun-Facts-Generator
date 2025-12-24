@@ -63,7 +63,7 @@
 
 <h2 id="architecture">Architecture</h2>
 <p align="center">
-  <img src="assets/polly-architecture-diagram.jpg" alt="Architecture Diagram" width="800">
+  <img src="assets/AWS-polly-text-to-speech.jpg" alt="Architecture Diagram" width="800">
 </p>
 <p>
   The serverless architecture is designed for simplicity, scalability, and cost-efficiency:
@@ -73,6 +73,7 @@
   <li><strong>Processing Layer:</strong> A Lambda function is triggered by S3 events. It reads the text and calls Amazon Polly to synthesize speech.</li>
   <li><strong>Identity & Security:</strong> IAM role grants the Lambda permission to access the buckets and invoke Polly with least privilege.</li>
   <li><strong>Output Layer:</strong> Generated MP3 files are saved to the output S3 bucket. Optional lifecycle rules and encryption ensure cost savings and security.</li>
+  <li><strong>CloudWatch Logs:</strong> Captures detailed Lambda execution logs for monitoring, debugging, and verifying Polly TTS output.</li>
 </ol>
 <div align="right"><a href="#readme-top">↑ Back to Top</a></div>
 
