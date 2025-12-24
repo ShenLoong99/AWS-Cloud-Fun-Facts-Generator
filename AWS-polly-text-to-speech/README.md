@@ -97,7 +97,7 @@
 <ol>
   <li>
     Upload a text file (e.g., <code>malaysia-news-article.txt</code>) to the input S3 bucket created by Terraform.<br>
-    <pre>aws s3 cp test/malaysia-news-article.txt s3://&lt;your-s3-input-bucket-name&gt;</pre>
+    <pre>aws s3 cp &lt;text-file-name&gt; s3://&lt;your-s3-input-bucket-name&gt;</pre>
     <img src="assets/upload-text-into-bucket.png" alt="upload-file" width="800"><br><br>
     <img src="assets/input-bucket-objects.png" alt="input-bucket-objects" width="800">
   </li>
@@ -109,7 +109,7 @@
   </li>
   <li>
     Check the output S3 bucket for the generated MP3 file by downloading it.<br>
-    <pre>aws s3 cp s3://&lt;your-s3-output-bucket-name&gt;/malaysia-news-article.mp3 ./test/malaysia-news-article.mp3</pre>
+    <pre>aws s3 cp s3://&lt;your-s3-output-bucket-name&gt;/&lt;audio-file-name&gt; &lt;destination/file-name&gt;</pre>
     <img src="assets/download-mp3-from-bucket.png" alt="verify-file" width="800"><br>
     <a target="_blank" href="https://ShenLoong99.github.io/my-terraform-aws-projects-2025/AWS-polly-text-to-speech/audio/
     ">🎵 [Click here to listen to the Output]</a>
