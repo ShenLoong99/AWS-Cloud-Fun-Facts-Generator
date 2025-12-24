@@ -182,6 +182,18 @@ resource "aws_s3_bucket_lifecycle_configuration" "input_lifecycle" {
     expiration {
       days = 30
     }
+
+    # Example 2: If you enabled versioning, delete non-current versions after 7 days
+    noncurrent_version_expiration {
+      noncurrent_days = 7
+    }
+  }
+}
+
+resource "aws_s3_bucket_versioning" "versioning_input_bucket" {
+  bucket = aws_s3_bucket.input_bucket.id
+  versioning_configuration {
+    status = "Enabled"
   }
 }
 
@@ -196,6 +208,18 @@ resource "aws_s3_bucket_lifecycle_configuration" "output_lifecycle" {
     expiration {
       days = 30
     }
+
+    # Example 2: If you enabled versioning, delete non-current versions after 7 days
+    noncurrent_version_expiration {
+      noncurrent_days = 7
+    }
+  }
+}
+
+resource "aws_s3_bucket_versioning" "versioning_output_bucket" {
+  bucket = aws_s3_bucket.output_bucket.id
+  versioning_configuration {
+    status = "Enabled"
   }
 }
 
