@@ -59,7 +59,7 @@
     <li><strong>Podcast & Media Automation:</strong> Quickly produce spoken content from written scripts.</li>
     <li><strong>Voice Assistants:</strong> Backend engine for applications that read content aloud on demand.</li>
 </ul>
-<div align="right"><a href="#readme-top">↑ Back to Top (test)</a></div>
+<div align="right"><a href="#readme-top">↑ Back to Top</a></div>
 
 <h2 id="architecture">Architecture</h2>
 <p align="center">
