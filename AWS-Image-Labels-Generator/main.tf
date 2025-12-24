@@ -65,7 +65,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "sse" {
 
 ///////////////////////////////////////////////////////////////////////////////
 
-// Public access blocked
+// Public access blocked (test)
 resource "aws_s3_bucket_public_access_block" "block_public_access" {
   bucket = aws_s3_bucket.images_bucket.id
 
