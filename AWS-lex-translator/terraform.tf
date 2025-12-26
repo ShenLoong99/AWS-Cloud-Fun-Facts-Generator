@@ -1,14 +1,14 @@
 terraform {
   required_version = ">= 1.0.0"
 
-  # backend "remote" {
-  #     hostname     = "app.terraform.io"
-  #     organization = "my-terraform-aws-projects-2025"
+  backend "remote" {
+      hostname     = "app.terraform.io"
+      organization = "my-terraform-aws-projects-2025"
 
-  #     workspaces {
-  #     name = ""
-  #     }
-  # }
+      workspaces {
+      name = "AWS-lex-translator"
+      }
+  }
 
   required_providers {
     aws = {
